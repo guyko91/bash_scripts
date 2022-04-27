@@ -17,3 +17,12 @@ DATE=${STR:8:8}
 echo $DATE
 # -> 20220427
 ```
+
+### 반복문
+```bash
+# find의 결과물을 반복
+for file in $(find . -name "*.log")
+do
+	echo $file
+done
+```
