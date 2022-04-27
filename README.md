@@ -13,4 +13,7 @@ cat *.log | grep -A10 -B10 "test grep"
 # ${'대상문자열데이터':시작INDEX:자를개수}
 STR="service.20220427.log"
 DATE=${STR:8:8}
+
+echo $DATE
+# -> 20220427
 ```
