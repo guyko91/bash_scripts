@@ -25,4 +25,12 @@ for file in $(find . -name "*.log")
 do
 	echo $file
 done
+
+# 명령어의 결과물을 배열에 담고 배열을 순환하기
+req_times=(`cat $file | grep -A9 -B1 "safenumber" | grep -A1 -B9 "internal exception" | grep "REQUEST TIME" | awk -F' ' '{ print $5 }'`)
+elapsed=(`cat $file | grep -A9 -B1 "safenumber" | grep -A1 -B9 "internal exception" | grep "ELAPSED" | awk -F' ' '{ print $4 }'`)
+
+for ((  i = 0 ; i < ${#req_times[@]} ; i++ )) ; do
+    echo ${req_times[$i]} ${elapsed[$i]}ms >> safenumber_error_list.txt
+done
 ```
