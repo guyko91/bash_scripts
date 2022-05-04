@@ -34,3 +34,10 @@ for ((  i = 0 ; i < ${#req_times[@]} ; i++ )) ; do
     echo ${req_times[$i]} ${elapsed[$i]}ms >> safenumber_error_list.txt
 done
 ```
+
+### 찾기
+```bash
+# 디렉토리에서 특정 문자열을 포함하는 파일을 찾고, 해당 부분을 출력
+find commonStore/statLog/2022* -type f -print | xargs grep "APICODE_007"
+
+```
