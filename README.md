@@ -41,3 +41,10 @@ done
 find commonStore/statLog/2022* -type f -print | xargs grep "APICODE_007"
 
 ```
+
+### 명령어의 결과로 명령을 수행
+```bash
+# pid를 찾아서 모두 한번에 kill 하기
+# java 프로세스의 pid를 search하여 xargs 명령어의 변수로 한번에 kill.
+ps -ef | grep java | awk '{print $2}' | xargs kill
+```
